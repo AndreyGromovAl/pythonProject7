@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+<body>
+   <ul class="list-users">
+<form action="/search" method="post" class="form-contact">
+    <div class="input-group d-flex justify-content-center g-0 mb-4">
+        <div class="col-8 d-flex flex-row align-items-center">
+            <input type="search" class="form-control rounded m-2" placeholder="Search" name="search" aria-label="Search" aria-describedby="search-addon" value="">
+            <input type="submit" class="btn btn-outline-primary me-5" var p="Search" name="p" value="Search"</input>
+             <button type="button" class="btn btn-outline-primary mx-auto p-2 rounded-pill" onclick = "window.location.href = 'update';">Cancel</button>
+            <button type="button" class="btn btn-outline-primary mx-auto p-2 rounded-pill" onclick = "window.location.href = 'Admin';">Back</button>
+
+
+
+        </div>
+    </div>
+</form>
+
+{% for r in user %}
+   </ul>
+
+<form action="/update" method="post" class="form-contact">
+
+    <div class="row d-flex justify-content-center g-0">
+
+
+        <div class="col-8 d-flex flex-row justify-content-top align-items-center">
+             <input type="text" class="form-control p-3 m-2 rounded-pill w-50" id="id_userS" name="id_user" placeholder="id_user" aria-label="id_user" aria-describedby="basic-addon2" value="{{r.id_user}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var a="{{r.FullName}}" id="secondnameS" name="a" placeholder="FullName" aria-label="Secondname" aria-describedby="basic-addon2" value="{{r.FullName}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var g={{r.Login}}; id="loginS" name="g" placeholder="Login" aria-label="Login" aria-describedby="basic-addon2" value="{{r.Login}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var o="{{r.Password}}" id="passwordS" name="o" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" value="{{r.Password}}">
+            <input type="submit" class="btn btn-outline-primary mx-auto p-2 rounded-pill" var p="dele" name="p"  value="Delete" </input>
+            <input type="submit" class="btn btn-outline-primary mx-auto p-2 rounded-pill" var p="red" name="p"  value="Update" </input>
+        </div>
+
+    </div>
+</form>
+         {% endfor %}
+
+    <ul class="list-users">
+
+{% for r in users %}
+
+<form action="/update" method="post" class="form-contact">
+
+    <div class="row d-flex justify-content-center g-0">
+
+
+        <div class="col-8 d-flex flex-row justify-content-top align-items-center">
+             <input type="text" class="form-control p-3 m-2 rounded-pill w-50" id="id_user" name="id_user" placeholder="id_user" aria-label="id_user" aria-describedby="basic-addon2" value="{{r.id_user}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var a="{{r.FullName}}" id="secondname" name="a" placeholder="FullName" aria-label="Secondname" aria-describedby="basic-addon2" value="{{r.FullName}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var g={{r.Login}}; id="login" name="g" placeholder="Login" aria-label="Login" aria-describedby="basic-addon2" value="{{r.Login}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var o="{{r.Password}}" id="password" name="o" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" value="{{r.Password}}">
+            <input type="submit" class="btn btn-outline-primary mx-auto p-2 rounded-pill" var p="dele" name="p"  value="Delete" </input>
+            <input type="submit" class="btn btn-outline-primary mx-auto p-2 rounded-pill" var p="red" name="p"  value="Update" </input>
+        </div>
+
+    </div>
+</form>
+         {% endfor %}
+
+    </ul>
+
+
+</body>
+</html>

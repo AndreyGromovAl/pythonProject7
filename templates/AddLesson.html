@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+
+<body class="start d-flex flex-column">
+
+  <div class="d-flex flex-row g-0">
+
+    <div class="start col-3 d-flex flex-column justify-content-center align-items-center g-0 border border-bottom-0 border-top-0 border-primary border-2">
+
+        <button type="button" class="btn btn-outline-primary mx-auto p-3 rounded-pill w-75 mb-3" onclick = "window.location.href = '/AddLesson/{{classname}}/AddField';" >Добавить поле</button>
+        <button type="button" class="btn btn-outline-primary mx-auto p-3 rounded-pill w-75 mb-3" onclick = "window.location.href = '/calendar-events';" >Посмотеть расписание</button>
+
+    </div>
+
+
+
+    <div class="start col d-flex g-0 px-3 flex-column overflow-auto justify-content-start">
+
+     
+        
+      <div class="d-flex justify-content-center align-items-center p-3">
+        <input type="text" class="form-control p-3 m-2 rounded-pill w-25 text-center" id="secondname" placeholder="{{classname}}" aria-label="Secondname" aria-describedby="basic-addon2" disabled>
+      </div>
+
+
+
+      <table class="table mx-auto flex-row table-bordered border-primary bg-primary-subtle sticky-top mt-0">
+        <thead>
+          <tr >
+            <th class="col col-1 text-primary text-center">start</th>
+            <th class="col col-1 text-primary text-center">stop</th>
+            <th class="col col-7 text-primary text-center">Преподаватель</th>
+          </tr>
+        </thead>
+      </table>
+
+
+      {% for l in Lesson %}
+       <form action="/AddLesson/{{classname}}" method="post" class="form-contact" >
+     <div class="col-8 d-flex flex-row justify-content-top align-items-center">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var s="{{l.startlesson}}" id="secondnameS" name="s" placeholder="startlesson" aria-label="startlesson" aria-describedby="basic-addon2" value="{{l.startlesson}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var e={{l.startlesson}}; id="loginS" name="e" placeholder="endlesson" aria-label="Login" aria-describedby="basic-addon2" value="{{l.endlesson}}">
+            <input type="text" class="form-control p-3 m-2 rounded-pill w-50" var d="{{l.startlesson}}" id="passwordS" name="d" placeholder="lessonname" aria-label="Password" aria-describedby="basic-addon2" value="{{l.lessonname}}">
+            <button type="submit" class="btn btn-outline-primary mx-auto p-3 rounded-pill w-60 mb-2" onclick="window.location.href = '/AddLesson/{{classname}}';" id="Button">Удалить</button>
+        </div>
+      </form>
+      {% endfor %}
+
+      </table>
+     
+
+   
+
+
+      
+    </div>
+
+  </div>
+  
+              
+
+</body>
+</html>
